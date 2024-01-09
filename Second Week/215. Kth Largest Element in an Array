@@ -1,1 +1,19 @@
+//This code is Written by Rishabh Sharma
+//Problem is solved using ArrayList
+
+import java.util.ArrayList;
+
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        ArrayList<Integer> list = new ArrayList<>(nums.length);
+
+        for (int i = 0; i < nums.length; i++) {
+            list.add(nums[i]);
+        }
+
+        list.sort(null); 
+
+        return list.get(list.size() - k);
+    }
+}
 
