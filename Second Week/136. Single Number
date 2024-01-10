@@ -1,0 +1,23 @@
+//This Code is Written by Rishabh Sharma
+//Problem is solved using ArrayList and HashSet
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Solution {
+    public int singleNumber(int[] nums) {
+        ArrayList<Integer> list = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if (!set.contains(num)) {
+                list.add(num);
+                set.add(num);
+            } else {
+                list.remove(Integer.valueOf(num));
+            }
+        }
+        return list.get(0);
+    }    
+}    
+
