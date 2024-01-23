@@ -1,0 +1,36 @@
+class Solution {
+    public static ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+    public int pairSum(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode reversedSecondHalf = reverse(slow);
+        int maxSum = Integer.MIN_VALUE;
+
+        while (reversedSecondHalf != null) {
+            int sum = head.val + reversedSecondHalf.val;
+            maxSum = Math.max(maxSum, sum);
+            head = head.next;
+            reversedSecondHalf = reversedSecondHalf.next;
+        }
+
+        return maxSum;
+    }
+}
