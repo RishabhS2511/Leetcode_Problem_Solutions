@@ -1,4 +1,4 @@
-//This code is Written by Rishabh Sharma
+//This code is written by Rishabh Sharma
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
