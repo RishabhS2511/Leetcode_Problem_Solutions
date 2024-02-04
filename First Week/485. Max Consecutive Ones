@@ -1,4 +1,4 @@
-//This code is return by Rishabh Sharma
+//This code is written by Rishabh Sharma
 
 class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {
