@@ -1,0 +1,38 @@
+//This code is written by Rishabh Sharma
+
+import java.util.Stack;
+
+class Solution {
+    int celebrity(int M[][], int n) {
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            stack.push(i);
+        }
+
+        while (stack.size() > 1) {
+            int A = stack.pop();
+            int B = stack.pop();
+
+            if (knows(M, A, B)) {
+                stack.push(B);
+            } else {
+                stack.push(A);
+            }
+        }
+
+        int potentialCelebrity = stack.pop();
+
+        for (int k = 0; k < n; k++) {
+            if (k != potentialCelebrity && (knows(M, potentialCelebrity, k) || !knows(M, k, potentialCelebrity))) {
+                return -1;
+            }
+        }
+
+        return potentialCelebrity;
+    }
+
+    boolean knows(int M[][], int A, int B) {
+        return M[A][B] == 1;
+    }
+}
