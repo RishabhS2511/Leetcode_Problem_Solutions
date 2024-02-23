@@ -1,7 +1,7 @@
 //This code is written by Rishabh Sharma
 //Problem is solved using ArrayList
 
-class Solution {
+class Solution { 
     public List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<>();
 
