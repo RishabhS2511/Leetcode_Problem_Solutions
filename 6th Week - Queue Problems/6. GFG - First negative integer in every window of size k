@@ -1,0 +1,34 @@
+//This code is written by Rishabh Sharma
+
+class Compute {
+    public long[] printFirstNegativeInteger(long A[], int N, int K) {
+        long[] result = new long[N - K + 1];
+        int resultIndex = 0;
+        
+        Queue<Long> negativeQueue = new LinkedList<>();
+    
+        for (int i = 0; i < K; i++) {
+            if (A[i] < 0) {
+                negativeQueue.offer(A[i]);
+            }
+        }
+        
+        for (int i = K; i < N; i++) {
+     
+            result[resultIndex++] = negativeQueue.isEmpty() ? 0 : negativeQueue.peek();
+        
+            if (!negativeQueue.isEmpty() && negativeQueue.peek() == A[i - K]) {
+                negativeQueue.poll();
+            }
+    
+            if (A[i] < 0) {
+                negativeQueue.offer(A[i]);
+            }
+        }
+
+        result[resultIndex] = negativeQueue.isEmpty() ? 0 : negativeQueue.peek();
+        
+        return result;
+    }
+}
+
