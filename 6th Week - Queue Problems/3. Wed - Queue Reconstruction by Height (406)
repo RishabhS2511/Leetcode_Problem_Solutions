@@ -1,0 +1,26 @@
+//This is written by Rishabh Sharma
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Solution {
+    public int[][] reconstructQueue(int[][] people) {
+        Arrays.sort(people, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(b[0], a[0]));
+        Queue<int[]> queue = new LinkedList<>();
+        for (int[] person : people) {
+            queue.offer(person);
+        }
+        int[][] result = new int[people.length][2];
+        while (!queue.isEmpty()) {
+            int[] person = queue.poll();
+            int index = person[1];  
+            for (int i = result.length - 1; i > index; i--) {
+                result[i] = result[i - 1];
+            }
+            result[index] = person;  
+        }
+
+        return result;
+    }
+}
