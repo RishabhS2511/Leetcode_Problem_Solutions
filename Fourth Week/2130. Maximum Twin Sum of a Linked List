@@ -1,3 +1,5 @@
+//This code is written by Rishabh Sharma
+
 class Solution {
     public static ListNode reverse(ListNode head) {
         ListNode prev = null;
