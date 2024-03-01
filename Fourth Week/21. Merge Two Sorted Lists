@@ -1,3 +1,5 @@
+//This code is written by Rishabh Sharma
+
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode h = new ListNode(-1);
